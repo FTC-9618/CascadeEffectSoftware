@@ -1,7 +1,7 @@
 #pragma config(Hubs,  S1, HTMotor,  HTServo,  none,     none)
 #pragma config(Hubs,  S2, HTMotor,  HTMotor,  none,     none)
-#pragma config(Sensor, S1,     leftside,       sensorI2CMuxController)
-#pragma config(Sensor, S2,     rightside,      sensorI2CMuxController)
+#pragma config(Sensor, S1,     leftside,       sensorNone)
+#pragma config(Sensor, S2,     rightside,      sensorNone)
 #pragma config(Motor,  mtr_S1_C1_1,     frontRight,    tmotorMatrix, openLoop)
 #pragma config(Motor,  mtr_S1_C1_2,     backRight,     tmotorMatrix, openLoop)
 #pragma config(Motor,  mtr_S2_C1_1,     frontLeft,     tmotorTetrix, openLoop, reversed)
@@ -66,7 +66,7 @@ task main() {
 
 		mecanumDrive(transX, transY, rot);
 
-		// athena's arm up and down code
+		//arm up and down code
 		if(abs(joystick.joy1_y2) > deadzone){
       motor[manipRight] = joystick.joy1_y2;
       motor[manipLeft] = joystick.joy1_y2;
@@ -78,20 +78,20 @@ task main() {
 
   	//manip movement code
   	if (joy1Btn(1) == true){
-  		servo[armmanip1] = 25;
-  		servo[armmanip2] = 25;
-  	}
-  	else{
   		servo[armmanip1] = 0;
+  		servo[armmanip2] = 180;
+  	}
+  	else {
+  		servo[armmanip1] = 180;
   		servo[armmanip2] = 0;
   	}
 
   //goal code
   	if(joy1Btn(3) == true) {
-  		servo[gatemanip] = 50;
+  		servo[gatemanip] = 180;
   	}
-  	if(joy1Btn(2) == true) {
-  		servo[gatemanip] = -50;
+  	else {
+  		servo[gatemanip] = 0;
 		}
 	}
 }
