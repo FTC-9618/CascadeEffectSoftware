@@ -8,9 +8,9 @@
 #pragma config(Motor,  mtr_S2_C1_2,     backLeft,      tmotorTetrix, openLoop, reversed)
 #pragma config(Motor,  mtr_S2_C2_1,     manipRight,    tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S2_C2_2,     manipLeft,     tmotorTetrix, openLoop, reversed)
-#pragma config(Servo,  srvo_S1_C2_1,    armmanip1,            tServoStandard)
-#pragma config(Servo,  srvo_S1_C2_2,    armmanip2,            tServoStandard)
-#pragma config(Servo,  srvo_S1_C2_3,    gatemanip,            tServoStandard)
+#pragma config(Servo,  srvo_S1_C2_1,    armManip1,            tServoStandard)
+#pragma config(Servo,  srvo_S1_C2_2,    armManip2,            tServoStandard)
+#pragma config(Servo,  srvo_S1_C2_3,    gateManip,            tServoStandard)
 #pragma config(Servo,  srvo_S1_C2_4,    servo4,               tServoNone)
 #pragma config(Servo,  srvo_S1_C2_5,    servo5,               tServoNone)
 #pragma config(Servo,  srvo_S1_C2_6,    servo6,               tServoNone)
@@ -78,20 +78,20 @@ task main() {
 
   	//manip movement code
   	if (joy1Btn(1) == true){
-  		servo[armmanip1] = 25;
-  		servo[armmanip2] = 25;
+  		servo[armManip1] = 25;
+  		servo[armManip2] = 25;
   	}
   	else{
-  		servo[armmanip1] = 0;
-  		servo[armmanip2] = 0;
+  		servo[armManip1] = 0;
+  		servo[armManip2] = 0;
   	}
 
   //goal code
   	if(joy1Btn(3) == true) {
-  		servo[gatemanip] = 50;
+  		servo[gateManip] = 50;
   	}
   	if(joy1Btn(2) == true) {
-  		servo[gatemanip] = -50;
+  		servo[gateManip] = -50;
 		}
 	}
 }
